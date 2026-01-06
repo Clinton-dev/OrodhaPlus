@@ -7,16 +7,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Orodha Plus</title>
+    @vite(['resources/js/app.js']);
 </head>
 <body class="bg-white">
-    <div class="">
-        <div>
-            <img src="{{ Vite::asset('resources/images/Logo.svg')}}" alt="orodha plus logo">
-            <div>
-                <h2>My Task Board</h2>
-                <p>Task to keep organized</p>
-            </div>
-        </div>
+    <div class=" max-w-5/10 mx-auto">
+        <x-header />
         <main>
             {{ $slot }}
         </main>

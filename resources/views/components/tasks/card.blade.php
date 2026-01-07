@@ -26,7 +26,7 @@
 @endphp
 
 @if($status == 'create')
-    <div class="{{$classes}}">
+    <div class="{{$classes}}" data-modal-target="task-modal" data-modal-toggle="task-modal">
         <div class="flex items-start gap-6">
             <x-tasks.status status="create"/>
             <x-tasks.details />
@@ -35,7 +35,7 @@
     </div>
 @else
 
-    <div class="{{$classes}}">
+    <div class="{{$classes}}" data-modal-target="task-modal" data-modal-toggle="task-modal">
         <div class="flex items-start gap-6">
             <x-tasks.icon />
             <x-tasks.details />

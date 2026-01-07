@@ -1,10 +1,14 @@
-@props(['task', 'status'=>'default'])
+@props(['task'=> null, 'status'=>'default'])
 
 @php
     $classes = 'flex justify-between rounded-3xl p-8';
 
     if($status == 'default') {
         $classes .= ' bg-gray-100';
+    }
+
+    if($status == 'create') {
+        $classes .= ' bg-accent-orange-100';
     }
 
     if($status == 'completed') {
@@ -21,11 +25,23 @@
 
 @endphp
 
-<div class="{{$classes}}">
-    <div class="flex items-start gap-6">
-        <x-tasks.icon />
-        <x-tasks.details />
-    </div>
+@if($status == 'create')
+    <div class="{{$classes}}">
+        <div class="flex items-start gap-6">
+            <x-tasks.status status="create"/>
+            <x-tasks.details />
+        </div>
 
-    <x-tasks.status />
-</div>
+    </div>
+@else
+
+    <div class="{{$classes}}">
+        <div class="flex items-start gap-6">
+            <x-tasks.icon />
+            <x-tasks.details />
+        </div>
+
+        <x-tasks.status />
+    </div>
+@endif
+

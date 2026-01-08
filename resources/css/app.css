@@ -13,6 +13,8 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 
+    --font-outfit: "Outfit", sans-serif;;
+
     /* Neutrals */
     --color-white: #F8FAFC;
     --color-gray-100: #E3E8EF;

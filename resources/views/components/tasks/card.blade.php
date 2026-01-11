@@ -3,22 +3,13 @@
 @php
     $classes = 'flex justify-between rounded-3xl p-8 hover:cursor-pointer';
 
-    switch($status) {
-        case $status == 'create':
-            $classes .= ' bg-accent-orange-100';
-            break;
-        case $status == 'completed':
-            $classes .= ' bg-primary-300';
-            break;
-        case $status == 'inProgress':
-            $classes .= ' bg-accent-yellow';
-            break;
-        case $status == 'wontDo':
-            $classes .= ' bg-danger-300';
-            break;
-        default:
-            $classes .= ' bg-gray-100';
-    }
+$classes .= match ($status) {
+    $status == 'create' => ' bg-accent-orange-100',
+    $status == 'completed' => ' bg-primary-300',
+    $status == 'inProgress' => ' bg-accent-yellow',
+    $status == 'wontDo' => ' bg-danger-300',
+    default => ' bg-gray-100',
+};
 
 @endphp
 

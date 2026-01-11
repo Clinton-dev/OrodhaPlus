@@ -1,7 +1,7 @@
 @props(['task'=> null, 'status'=>null])
 
 @php
-    $classes = 'flex justify-between rounded-3xl p-8';
+    $classes = 'flex justify-between rounded-3xl p-8 hover:cursor-pointer';
 
     switch($status) {
         case $status == 'create':

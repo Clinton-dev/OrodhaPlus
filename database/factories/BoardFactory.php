@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Board;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Board>
+ * @extends Factory<Board>
  */
 class BoardFactory extends Factory
 {
@@ -17,7 +18,8 @@ class BoardFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()-> name,
+            'description' => fake() -> text,
         ];
     }
 }

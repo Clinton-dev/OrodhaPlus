@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Board;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -20,6 +22,12 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+        ]);
+
+        $board = Board::factory()->create();
+        
+        Task::factory(4)->create([
+            'board_id' => $board->id,
         ]);
     }
 }

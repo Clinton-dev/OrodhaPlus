@@ -2,10 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\Board;
+use App\Models\Task;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Task>
+ * @extends Factory<Task>
  */
 class TaskFactory extends Factory
 {
@@ -17,7 +19,11 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'description' => fake()->text(),
+            'status' => fake()->randomElement(['pending', 'inProgress', 'completed', 'wontDo']),
+            'icon' => fake()->randomElement(['study', 'message', 'tea','workout','study','clock']),
+            'board_id' => Board::factory(),
         ];
     }
 }

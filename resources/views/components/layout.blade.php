@@ -1,3 +1,4 @@
+@props(['title', 'description'])
 @php
     use Illuminate\Support\Facades\Vite;
 @endphp
@@ -16,7 +17,7 @@
 </head>
 <body class="bg-white font-outfit">
     <div class=" max-w-5/10 mx-auto">
-        <x-header />
+        <x-header :$title :$description />
         <main>
             {{ $slot }}
         </main>

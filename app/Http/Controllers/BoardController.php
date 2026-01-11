@@ -36,7 +36,8 @@ class BoardController extends Controller
      */
     public function show(Board $board)
     {
-        //
+        $tasks = $board->tasks()->get();
+        dd($tasks);
     }
 
     /**

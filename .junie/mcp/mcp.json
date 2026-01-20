@@ -1,0 +1,11 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "/home/clinton/.config/herd-lite/bin/php",
+            "args": [
+                "/home/clinton/sandbox/laravel-tuts/orodha/artisan",
+                "boost:mcp"
+            ]
+        }
+    }
+}

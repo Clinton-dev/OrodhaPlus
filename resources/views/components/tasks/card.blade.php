@@ -1,19 +1,20 @@
-@props(['task'=> null, 'status'=>null])
+@props(['task' => null, 'status' => null])
 
 @php
+    $resolvedStatus = $status ?? $task?->status ?? 'create';
     $classes = 'flex justify-between rounded-3xl p-8 hover:cursor-pointer';
 
-$classes .= match ($status) {
-    $status == 'create' => ' bg-accent-orange-100',
-    $status == 'completed' => ' bg-primary-300',
-    $status == 'inProgress' => ' bg-accent-yellow',
-    $status == 'wontDo' => ' bg-danger-300',
+$classes .= match ($resolvedStatus) {
+    'create' => ' bg-accent-orange-100',
+    'completed' => ' bg-primary-300',
+    'inProgress' => ' bg-accent-yellow',
+    'wontDo' => ' bg-danger-300',
     default => ' bg-gray-100',
 };
 
 @endphp
 
-@if($status == 'create')
+@if($resolvedStatus === 'create' || ! $task)
     <div class="{{$classes}}" data-modal-target="task-modal" data-modal-toggle="task-modal">
         <div class="flex items-start gap-6">
             <x-tasks.status status="create"/>
@@ -29,10 +30,9 @@ $classes .= match ($status) {
             <x-tasks.details title="{{$task->name}}" description="{{$task->description}}"/>
         </div>
 
-        @if($task->status != 'pending')
-            <x-tasks.status status="{{$task->status}}"/>
+        @if($task->status !== 'pending')
+            <x-tasks.status status="{{ $task->status }}"/>
         @endif
 
     </div>
 @endif
-

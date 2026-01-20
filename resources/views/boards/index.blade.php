@@ -3,7 +3,14 @@
         @foreach($tasks as $task)
             <x-tasks.card :$task status="{{$task->status}}" />
         @endforeach
-       <x-tasks.card status="create"  />
+
+        <button form="create-task-form" type="submit">
+            <x-tasks.card status="create"  />
+        </button>
+
+            <form id="create-task-form"  method="POST" action="{{route('tasks.store', $board)}}">
+                @csrf
+            </form>
     </section>
     <x-task-modal />
 </x-layout>
